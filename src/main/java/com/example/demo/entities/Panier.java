@@ -1,0 +1,29 @@
+package com.example.demo.entities;
+
+import java.util.List;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToOne;
+
+@Entity
+public class Panier {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String date;
+
+    @OneToOne(mappedBy = "panier")
+    private Client client;
+
+    @ManyToMany
+    @JoinTable(name = "panier_produit", joinColumns = @JoinColumn(name = "panier_id"), inverseJoinColumns = @JoinColumn(name = "produit_id"))
+    private List<Produit> produits;
+}

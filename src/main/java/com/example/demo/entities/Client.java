@@ -11,8 +11,14 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.PrimaryKeyJoinColumn;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @PrimaryKeyJoinColumn(name = "client_id")
 public class Client extends User {
 
@@ -21,7 +27,7 @@ public class Client extends User {
     private Long id;
 
     @OneToOne
-    @JoinColumn(name = "panier_id") // Nom de la colonne de la clé étrangère dans la table Client
+    @JoinColumn(name = "panier_id")
     private Panier panier;
 
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)

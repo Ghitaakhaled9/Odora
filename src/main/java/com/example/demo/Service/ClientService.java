@@ -1,7 +1,7 @@
 package com.example.demo.Service;
 
 import com.example.demo.Repository.ClientRepository;
-import com.example.demo.entities.Client;
+import com.example.demo.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,20 +17,20 @@ public class ClientService {
         this.clientRepository = clientRepository;
     }
 
-    public List<Client> getAllClients() {
+    public List<User> getAllClients() {
         return clientRepository.findAll();
     }
 
-    public Client getClientById(Long id) {
+    public User getClientById(Long id) {
         return clientRepository.findById(id).orElse(null);
     }
 
-    public Client createClient(Client client) {
+    public User createClient(User client) {
         return clientRepository.save(client);
     }
 
-    public Client updateClient(Long id, Client clientDetails) {
-        Client client = clientRepository.findById(id).orElse(null);
+    public User updateClient(Long id, User clientDetails) {
+        User client = clientRepository.findById(id).orElse(null);
         if (client != null) {
             client.setUsername(clientDetails.getUsername());
             // Set other fields as needed

@@ -31,8 +31,8 @@ public class Commande {
     private int quantityProduct;
 
     @ManyToOne
-    @JoinColumn(name = "client_id")
-    private Client client;
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @ManyToMany
     @JoinTable(name = "commande_produit", joinColumns = @JoinColumn(name = "commande_id"), inverseJoinColumns = @JoinColumn(name = "produit_id"))

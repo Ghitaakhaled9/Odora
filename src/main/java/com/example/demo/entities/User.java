@@ -46,11 +46,7 @@ public class User {
     private String adresse;
     private String tel;
     private String email;
+    private UserType type;
 
-    private enum UserType {
-        CLIENT,
-        ADMIN,
-        GERANT
-    };
 
 }
